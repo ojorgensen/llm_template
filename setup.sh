@@ -2,6 +2,10 @@ cp .env.example .env
 mkdir logs
 mkdir data
 
+# Set git config
+git config --global user.email "ojorgensen1417@gmail.com"
+git config --global user.name "Ole Jorgensen"
+
 # Make sure gcc is installed (this might through an error otherwise)
 sudo apt update
 sudo apt upgrade -y
