@@ -1,3 +1,0 @@
-echo $PATH
-
-gcc --version
