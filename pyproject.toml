@@ -50,18 +50,8 @@ no_implicit_reexport = true
 strict_equality = true
 warn_redundant_casts = true
 warn_unused_configs = true
-
-[[tool.mypy.overrides]]
-module="src.template"
-warn_return_any = true
-disallow_untyped_defs = true 
-disallow_any_generics = true
-disallow_subclassing_any = true
-disallow_untyped_calls = true
-disallow_incomplete_defs = true
-check_untyped_defs = true
-disallow_untyped_decorators = true
-extra_checks = true
+#Get mypy to resolve imports correctly in the test files
+mypy_path = "tests"
 
 [[tool.mypy.overrides]]
 module = "pandas-stubs.*"
