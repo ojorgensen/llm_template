@@ -1,0 +1,29 @@
+name: Template CI
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    lint:
+        uses: ./.github/workflows/lint.yml
+        with:
+            project-directory: .
+        
+    format:
+        uses: ./.github/workflows/format.yml
+        with:
+            project-directory: .
+
+    type-check:
+        uses: ./.github/workflows/type-check.yml
+        with:
+            project-directory: .
+    test:
+        uses: ./.github/workflows/test.yml
+        with:
+            project-directory: .
