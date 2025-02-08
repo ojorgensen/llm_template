@@ -1,36 +1,37 @@
-[tool.poetry]
+[project]
 name = "template"
 version = "0.1.0"
-authors = ["Ole Jorgensen <ojorgensen1417@gmail.com>"]
 description = "Template project"
-packages = [{include = "template", from = "src"}]
+authors = [
+    {name = "Ole Jorgensen", email = "ojorgensen1417@gmail.com"},
+]
+dependencies = [
+    "pandas>=2.2.2",
+    "numpy>=1.26.4",
+    "torch>=2.3.0",
+    "transformers>=4.41.1",
+    "datasets>=2.19.1",
+    "accelerate>=0.30.1",
+    "debugpy>=1.8.1",
+    "python-dotenv>=1.0.1",
+    "pydantic>=2.7.1",
+    "openai>=1.30.3",
+    "anthropic>=0.26.1",
+    "mistral>=18.0.1",
+    "wandb>=0.16.0,<0.17.0",
+    "ipython>=8.24.0",
+    "ipykernel>=6.29.4",
+    "notebook>=7.2.0",
+    "inspect-ai",
+]
 
-
-[tool.poetry.dependencies]
-python = "^3.10"
-pandas = "^2.2.2"
-numpy = "^1.26.4"
-torch = "^2.3.0"
-transformers = "^4.41.1"
-datasets = "^2.19.1"
-accelerate = "^0.30.1"
-inspect_ai = {git = "https://github.com/UKGovernmentBEIS/inspect_ai.git", branch = "main"}
-debugpy = "^1.8.1"
-python-dotenv = "^1.0.1"
-pydantic = "^2.7.1"
-openai = "^1.30.3"
-anthropic = "^0.26.1"
-mistral = "^18.0.1"
-wandb = ">=0.16.0, <0.17.0"
-ipython = "^8.24.0"
-ipykernel = "^6.29.4"
-notebook = "^7.2.0"
-
-[tool.poetry.dev-dependencies]
-mypy = "^1.9.0"
-pre-commit = "^3.6.2"
-pytest = "^8.1.1"
-ruff = "^0.3.5"
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.9.0",
+    "pre-commit>=3.6.2",
+    "pytest>=8.1.1",
+    "ruff>=0.3.5",
+]
 
 [tool.ruff]
 extend-exclude = ["docs"]
@@ -63,6 +64,9 @@ mypy_path = "tests"
 module = "pandas-stubs.*"
 ignore_errors = true
 
+[tool.uv.sources]
+inspect-ai = { git = "https://github.com/UKGovernmentBEIS/inspect_ai" }
+
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
